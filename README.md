@@ -23,3 +23,36 @@ Instalando o Virtual Environment
 ```
 python3 -m pip install virtualenv
 ```
+
+Então faça uma nova pasta
+OBS: digite sem aspas
+
+```
+mkdir "nome que desejar"
+cd "nome que desejar"
+```
+Ou continue utilizando a pasta L&B Vendas
+
+Crie o ambiente virtual
+
+```
+python3 -m venv testenv ou "nome que desejar"
+```
+
+Ativando o ambiente virtual no Linux
+
+```
+source testenv/bin/activate
+```
+Ativando o ambiente virtual no Windows
+
+Powershell
+
+```
+.\testenv\Scripts\activate.ps1
+```
+
+CMD
+```
+.\testenv\Scripts\activate.bat
+```
