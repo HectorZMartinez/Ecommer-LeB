@@ -32,6 +32,7 @@ OBS: digite sem aspas
 mkdir "nome que desejar"
 cd "nome que desejar"
 ```
+
 Ou continue utilizando a pasta L&B Vendas
 ⋘ ──── ∗ ⋅◈⋅ ∗ ──── ⋙
 
