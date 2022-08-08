@@ -34,7 +34,7 @@ def anuncio():
 
 @app.route("/anuncios/pergunta")
 def pergunta():
-    return render_template("pergunta.html")
+    return render_template("comentario.html")
 
 
 @app.route("/anuncio/favoritos")
