@@ -7,6 +7,5 @@ flask run
 
 Em Windows --
 set FLASK_APP=leb
-python -m 
 
-flask run
+python -m flask run
