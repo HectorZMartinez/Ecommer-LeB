@@ -26,6 +26,8 @@ python3 -m pip install virtualenv
 ⋘ ──── ∗ ⋅◈⋅ ∗ ──── ⋙
 
 Então faça uma nova pasta
+
+
 OBS: digite sem aspas
 
 ```
