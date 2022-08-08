@@ -34,6 +34,8 @@ cd "nome que desejar"
 ```
 
 Ou continue utilizando a pasta L&B Vendas
+
+
 ⋘ ──── ∗ ⋅◈⋅ ∗ ──── ⋙
 
 Crie o ambiente virtual
