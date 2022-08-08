@@ -1,4 +1,4 @@
-Para que seja possível inicializar o flask:
+Para que seja possível inicializar o flask tanto no (cmd/powershell/terminal)
 
 :rocket: Em Linux. :rocket:
 
