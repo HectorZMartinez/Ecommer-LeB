@@ -1,12 +1,12 @@
 Para que seja possível inicializar o flask:
 
-Em Linux . 　　  ⊹  :rocket:   　 ✵  　🕊
+⊹ :rocket:  ✵ 　🕊 Em Linux. 　⊹ :rocket:  ✵ 　🕊
 
 ```
 export FLASK_APP=leb
 flask run
 ```
-Em Windows . 　　  ⊹  :rocket:   　 ✵  　🕊
+⊹ :rocket:  ✵ 　🕊 Em Windows.  ⊹ :rocket:  ✵ 　🕊
 
 ```
 set FLASK_APP=leb
