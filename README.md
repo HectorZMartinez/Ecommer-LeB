@@ -28,14 +28,14 @@ python3 -m pip install virtualenv
 Então faça uma nova pasta
 
 
-OBS: digite sem aspas
+**OBS:** digite sem aspas
 
 ```
 mkdir "nome que desejar"
 cd "nome que desejar"
 ```
 
-Ou continue utilizando a pasta L&B Vendas
+Ou continue utilizando a pasta **L&B Vendas**
 
 
 ⋘ ──── ∗ ⋅◈⋅ ∗ ──── ⋙
@@ -47,12 +47,12 @@ python3 -m venv testenv ou "nome que desejar"
 ```
 ⋘ ──── ∗ ⋅◈⋅ ∗ ──── ⋙
 
-Ativando o ambiente virtual no Linux
+Ativando o ambiente virtual no **Linux**
 
 ```
 source testenv/bin/activate
 ```
-Ativando o ambiente virtual no Windows
+Ativando o ambiente virtual no **Windows**
 
 PowerShell
 
