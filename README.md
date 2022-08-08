@@ -18,3 +18,8 @@ python -m flask run
 ```
 
 ### Caso queira fazer um ambiente virtual, siga os passos a seguir:
+
+Instalando o Virtual Environment
+```
+python3 -m pip install virtualenv
+```
