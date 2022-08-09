@@ -17,6 +17,13 @@ set FLASK_APP=leb
 python -m flask run
 ```
 
+Ou somente
+
+```
+flask run
+```
+
+
 ### Caso queira fazer um ambiente virtual, siga os passos a seguir:
 
 Instalando o Virtual Environment
