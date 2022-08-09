@@ -16,7 +16,7 @@ flask run
 set FLASK_APP=leb
 python -m flask run
 
-#Ou somente
+# Ou somente #
 
 flask run
 ```
