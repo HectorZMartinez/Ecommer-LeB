@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <title>-- Legal e Bonito -- Para Comprar e Vender -- Edicao de {{titulo}}</title>
+</head>
+
+<body>
+    <h4>Edicao de {{titulo}}</h4>
+    <form action="/anuncio/editar/{{ anuncio.id }}" method="post">
+
+        <p><label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" value="{{anuncio.nome}}">
+        </p>
+
+        <p><label for="descricao">Descricao</label>
+            <textarea rows="4" cols="50" id="descricao" name="descricao"></textarea>
+        </p>
+
+        <p><label for="quantidade">Quantidade</label>
+            <input type="text" id="quantidade" name="quantidade" value="{{anuncio.quantidade}}">
+        </p>
+
+        <p><label for="preco">Preco</label>
+            <input type="text" id="preco" name="preco" value="{{anuncio.preco}}">
+        </p>
+
+        <p><label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+                {% for categoria in categorias %}
+                <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <p><label for="user">Usuario</label>
+            <input type="text" id="usuario" name="usuario">
+        </p>
+
+        <p><input type="submit" value="Alterar"></p>
+    </form>
+    <a href={{url_for("anuncio")}}> Cancelar</a>
+</body>
+
+</html>

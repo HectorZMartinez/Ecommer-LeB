@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <title>-- Legal e Bonito -- Para Comprar e Vender -- Cadastro de {{titulo}}</title>
+</head>
+
+<body>
+    <h4>Cadastro de {{titulo}}</h4>
+    <form action="/categoria/criar" method="post">
+
+        <p><label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome">
+        </p>
+
+        <p><label for="descricao">Descricao</label>
+            <input type="text" id="descricao" name="descricao">
+        </p>
+
+        <p><input type="submit" value="Cadastrar">
+        </p>
+
+    </form>
+
+    <h4>Lista de {{titulo}}</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descricao</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+            <tr>
+                <td>{{ categoria.nome }}</td>
+                <td>{{ categoria.descricao }}</td>
+                <td><a href={{ url_for("editarcategoria",id=categoria.id) }}>Editar?</a></td>
+                <td><a href={{ url_for("deletarcategoria",id=categoria.id) }}>Deletar?</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
