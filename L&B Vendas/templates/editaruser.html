@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <title>-- Legal e Bonito -- Para Comprar e Vender -- Edicao de {{titulo}}</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Edicao de {{titulo}}</h1>
+        </div>
+        <form action="/usuario/editar/{{ usuario.id }}" method="post">
+            <div class="form-group">
+                <label for="user">Username</label>
+                <input type="text" class="form-control" id="user" name="user" value="{{usuario.nome}}">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" name="email" value="{{usuario.email}}">
+            </div>
+            <div class="form-group">
+                <label for="senha">Password</label>
+                <input type="text" class="form-control" id="senha" name="senha" value="{{usuario.senha}}">
+            </div>
+            <div class="form-group">
+                <label for="ende">Endereco</label>
+                <input type="text" class="form-control" id="ende" name="ende" value="{{usuario.ende}}">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control" value="Alterar">
+                <a class="form-control" href={{url_for("usuario")}}> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
