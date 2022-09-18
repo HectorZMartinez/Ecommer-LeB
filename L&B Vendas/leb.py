@@ -12,7 +12,7 @@ import hashlib
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:2332@localhost:3306/banquin"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://Hector2332:2332@Hector2332.mysql.pythonanywhere-services.com:3306/Hector2332$banquin"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
@@ -25,17 +25,17 @@ login_manager.login_view = "login"
 
 class Usuario(db.Model):
     __tablename__ = "usuario"
-    id = db.Column("usuario_id", db.Integer, primary_key=True)
-    nome = db.Column("usuario_nome", db.String(256))
-    email = db.Column("usuario_email", db.String(256))
-    senha = db.Column("usuario_senha", db.String(256))
-    ende = db.Column("usuario_ende", db.String(256))
+    usuario_id = db.Column("usuario_id", db.Integer, primary_key=True)
+    usuario_nome = db.Column("usuario_nome", db.String(256))
+    usuario_email = db.Column("usuario_email", db.String(256))
+    usuario_senha = db.Column("usuario_senha", db.String(256))
+    usuario_ende = db.Column("usuario_ende", db.String(256))
 
     def __init__(self, nome, email, senha, ende):
-        self.nome = nome
-        self.email = email
-        self.senha = senha
-        self.ende = ende
+        self.usuario_nome = nome
+        self.usuario_email = email
+        self.usuario_senha = senha
+        self.usuario_ende = ende
 
     def is_authenticated(self):
         return True
@@ -47,7 +47,7 @@ class Usuario(db.Model):
         return False
 
     def get_id(self):
-        return str(self.id)
+        return str(self.usuario_id)
 
 
 class Categoria(db.Model):
@@ -86,7 +86,7 @@ class Compra(db.Model):
     __tablename__ = "compra"
     id = db.Column("compra_id", db.Integer, primary_key=True)
     preco = db.Column("compra_preco", db.Float)
-    qtd = db.Column("compra_quantidade", db.Integer)
+    quantidade = db.Column("compra_quantidade", db.Integer)
     total = db.Column("compra_total", db.Float)
     anuncio_id = db.Column("anuncio_id", db.Integer,
                            db.ForeignKey("anuncio.anuncio_id"))
@@ -98,7 +98,7 @@ class Compra(db.Model):
         self.quantidade = quantidade
         self.total = total
         self.anuncio_id = anuncio_id
-        self.usu_id = usuario_id
+        self.usuario_id = usuario_id
 
 
 @app.errorhandler(404)
@@ -118,7 +118,8 @@ def login():
         senha = hashlib.sha512(
             str(request.form.get("senha")).encode("utf-8")).hexdigest()
 
-        user = Usuario.query.filter_by(email=email, senha=senha).first()
+        user = Usuario.query.filter_by(
+            usuario_email=email, usuario_senha=senha).first()
 
         if user:
             login_user(user)
@@ -135,9 +136,15 @@ def logout():
 
 
 @app.route("/")
-@login_required
 def index():
+    db.create_all()
     return render_template("index.html")
+
+
+@app.route("/compras")
+@login_required
+def compras():
+    return render_template("compras.html")
 
 
 @app.route("/cad/usuario")
@@ -199,13 +206,17 @@ def deletaranuncio(id):
 @app.route("/cad/anuncio")
 @login_required
 def anuncio():
-    return render_template("anuncio.html", anuncios=Anuncio.query.all(), categorias=Categoria.query.all(), titulo="Anuncio")
+    anuncios = Anuncio.query.all()
+    for anuncio in anuncios:
+        anuncio.mostrarbotCompra = current_user.usuario_id != anuncio.usuario_id
+    print(anuncios[0].mostrarbotCompra)
+    return render_template("anuncio.html", anuncios=anuncios, categorias=Categoria.query.all(), titulo="Anuncio")
 
 
 @app.route("/anuncio/criar", methods=["POST"])
 def novoanuncio():
     anuncio = Anuncio(request.form.get("nome"), request.form.get("descricao"), request.form.get(
-        "quantidade"), request.form.get("preco"), request.form.get("categoria"), request.form.get("usuario"))
+        "quantidade"), request.form.get("preco"), request.form.get("categoria"), current_user.usuario_id)
     db.session.add(anuncio)
     db.session.commit()
     return redirect(url_for("anuncio"))
@@ -267,3 +278,4 @@ def editarcategoria(id):
 
 if __name__ == "leb":
     db.create_all()
+    app.run()
