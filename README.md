@@ -10,7 +10,7 @@ No Linux.
 export FLASK_APP=leb
 flask run
 ```
-:rocket: No Windows. :rocket:
+No Windows.
 
 ```
 set FLASK_APP=leb
