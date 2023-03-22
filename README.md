@@ -4,7 +4,7 @@
 
 Para que seja possível inicializar o flask tanto no *(cmd/powershell/terminal)* 
 
-:rocket: No Linux. :rocket:
+No Linux.
 
 ```
 export FLASK_APP=leb
